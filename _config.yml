@@ -1,0 +1,37 @@
+# Site settings
+title: Sergei Doroshenko's Blog
+description: Personal blog about software development, tools, and technology
+url: "https://sergei-doroshenko.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Author settings
+author:
+  name: Sergei Doroshenko
+  email: 6823298@gmail.com
+  github: sergei-doroshenko
+  linkedin: sergei-doroshenko
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sergei Doroshenko"
+      
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
