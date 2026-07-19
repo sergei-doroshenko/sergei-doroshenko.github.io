@@ -1,8 +1,7 @@
 ---
-layout: post
-title: "c-sync: A Minimalist AWS S3 Backup Solution"
+title: 'c-sync: A Minimalist AWS S3 Backup Solution'
+description: 'A lightweight bash script for backing up files and directories to AWS S3 — one file, AWS CLI profiles, no dependencies.'
 date: 2025-06-08
-categories: [tools, aws, bash]
 tags: [aws, s3, backup, bash, cli]
 ---
 
