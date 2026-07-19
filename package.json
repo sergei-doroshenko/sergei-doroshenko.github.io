@@ -13,7 +13,9 @@
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "@fontsource/space-grotesk": "^5.1.1",
-    "astro": "^5.1.0"
+    "astro": "^5.1.0",
+    "markdown-it": "^14.3.0",
+    "sanitize-html": "^2.17.6"
   },
   "engines": {
     "node": ">=20.3.0"
