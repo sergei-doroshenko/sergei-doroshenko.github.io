@@ -3,7 +3,7 @@ title: 'I Reprogrammed My App With a Sentence (No Deploy Required)'
 description: 'How a kettlebell tracker accidentally grew a DSL, an interpreter, and an LLM compiler — and what that thousand-fold price drop means for old patterns.'
 date: 2026-07-19
 tags: [llm, dsl, patterns, react]
-draft: true
+draft: false
 ---
 
 
@@ -21,7 +21,7 @@ I practice kettlebell sport. My competitive goal is the 10-minute snatch: one ke
 
 No off-the-shelf fitness app handles this. They're all built for "3 sets of 10" gym logic, not "4 minutes right arm, full rest, 4 minutes left arm, tell me the minute my right side starts to fade."
 
-So I did what programmers do: I built my own. Or rather, I had a long conversation with Claude, and a React prototype grew inside the chat — a guided workout screen, chained set timers with audio cues, a journal. The usual story in 2026; nothing to blog about yet.
+So I did what programmers do: I built [my own](https://github.com/sergei-doroshenko/kb-tracker). Or rather, I had a long conversation with Claude, and a React prototype grew inside the chat — a guided workout screen, chained set timers with audio cues, a journal. The usual story in 2026; nothing to blog about yet.
 
 ## Three requests that accidentally built a language
 
@@ -128,4 +128,4 @@ As for me — the tracker now knows that this Monday is method 3, twenty kilogra
 
 ---
 
-*The tracker is a single-file React app (~1,500 lines) born as a Claude artifact and later moved to Vite + S3. The training plan, the app, and this post were all built in the same ongoing conversation — which feels like part of the point.*
+*The tracker is a single-file React app (~1,500 lines at the time of writing) born as a Claude artifact and later moved to Vite + S3 — [source on GitHub](https://github.com/sergei-doroshenko/kb-tracker), [live app](https://d12weanrdyhou9.cloudfront.net/index.html). The training plan, the app, and this post were all built in the same ongoing conversation — which feels like part of the point.*
