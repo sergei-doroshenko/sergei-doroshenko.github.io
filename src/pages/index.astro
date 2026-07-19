@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' });
+---
+<Base
+  title="Sergei Doroshenko's Blog"
+  description="Software development, tools, AWS, and patterns that suddenly got cheap again. Notes from a programmer and kettlebell sport athlete."
+>
+  <p class="intro">
+    I write about software development, tools, and the new economics of old
+    patterns. Programmer by trade, kettlebell sport athlete by obsession — some
+    posts are born from both, like my
+    <a href="https://github.com/sergei-doroshenko/kb-tracker">training tracker</a>
+    and <a href="https://github.com/sergei-doroshenko/c-sync">c-sync</a>.
+  </p>
+
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+        <div>
+          <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+          <p>{post.data.description}</p>
+          {post.data.tags.length > 0 && (
+            <div class="tags">
+              {post.data.tags.map((t) => <span>{t}</span>)}
+            </div>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -1,0 +1,56 @@
+---
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Set for articles so OG type is correct */
+  article?: boolean;
+}
+
+const { title, description, article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteName = "Sergei Doroshenko's Blog";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={siteName} href={new URL('/rss.xml', Astro.site)} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/">Sergei Doroshenko</a>
+      <nav class="site-nav">
+        <a href="/">Blog</a>
+        <a href="/rss.xml">RSS</a>
+        <a href="https://github.com/sergei-doroshenko">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <span>© {new Date().getFullYear()} Sergei Doroshenko</span>
+      <span>
+        <a href="https://github.com/sergei-doroshenko">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/sergei-doroshenko">LinkedIn</a>
+      </span>
+    </footer>
+  </body>
+</html>
